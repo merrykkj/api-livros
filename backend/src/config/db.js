@@ -25,8 +25,10 @@ export async function iniciarBanco() {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome_sistema TEXT NOT NULL,
             nome_usuario TEXT NOT NULL UNIQUE,
-            foto_perfil TEXT,
-            biografia TEXT
+            email TEXT NOT NULL UNIQUE,          
+            senha TEXT NOT NULL,                 
+            foto_perfil TEXT,                    
+            biografia TEXT                       
         );
 
         CREATE TABLE IF NOT EXISTS avaliacoes (
