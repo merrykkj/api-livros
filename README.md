@@ -20,7 +20,9 @@ Uma plataforma completa para leitores buscarem livros via API Open Library, gere
 * **Banco de Dados:** SQLite (`sqlite3` & `sqlite`)
 
 ### Frontend
-* **Tecnologias:** HTML5, CSS3 e JavaScript Moderno (ES6+)
+* **Framework:** Next.js
+* **Estilização:** Tailwind CSS
+* **Linguagem:** JavaScript Moderno (ES6+)
 
 ---
 
