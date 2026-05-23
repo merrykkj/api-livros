@@ -7,6 +7,13 @@ const app = express();
 const PORT = 3001;
 
 app.use(express.json());
+
+iniciarBanco().then(() => {
+    console.log("Banco de dados pronto e tabelas criadas.");
+}).catch((erro) => {
+    console.error("Erro ao inicializar o banco:", erro);
+});
+
 app.get('/', (req, res) => res.status(200).json ({
     message: "Hello World"
 }))

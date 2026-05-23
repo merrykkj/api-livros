@@ -6,21 +6,20 @@ export async function iniciarBanco() {
         filename: './database.db',
         driver: sqlite3.Database
     });
-    
+
     await db.get("PRAGMA foreign_keys = ON");
-    
+
     await db.exec(`
         CREATE TABLE IF NOT EXISTS livros (
-            id_open_library TEXT PRIMARY KEY,
-            titulo TEXT NOT NULL,
-            autor TEXT,               
-            ano_publicacao INTEGER,
-            descricao TEXT,
-            imagem_capa TEXT,
-            edicao_livro TEXT,        
-            formato_livro TEXT        
-        );
-
+    id_open_library TEXT PRIMARY KEY, 
+    titulo TEXT NOT NULL,
+    autor TEXT,               
+    ano_publicacao INTEGER,
+    descricao TEXT,
+    imagem_capa TEXT,
+    edicao_livro TEXT,        
+    formato_livro TEXT
+);
         CREATE TABLE IF NOT EXISTS usuarios (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome_sistema TEXT NOT NULL,
