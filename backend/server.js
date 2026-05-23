@@ -11,24 +11,12 @@ app.get('/', (req, res) => res.status(200).json ({
     message: "Hello World"
 }))
 
-app.get('/avaliacao', avaliacao)
+app.use('/avaliacoes', avaliacao)
 
-app.get('/usuario', usuario)
+app.use('/usuarios', usuario)
 
-app.get('/livro', livro)
+app.use('/livros', livro)
 
-async function ligarServidor() {
-    try {
-        console.log("Conectando ao banco de dados...");
-        await iniciarBanco();
-        console.log("Banco de dados pronto e tabelas criadas!");
-
-        app.listen(PORT, () => {
-            console.log(`🚀 Servidor backend rodando em http://localhost:${PORT}`);
-        });
-    } catch (error) {
-        console.error("Erro ao iniciar o servidor e o banco:", error);
-    }
-}
-
-ligarServidor();
+app.listen(3001, () => {
+    console.log("Servidor rodando e rotas ativas! 🚀");
+});

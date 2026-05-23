@@ -26,7 +26,9 @@ export async function iniciarBanco() {
             nome_sistema TEXT NOT NULL,
             nome_usuario TEXT NOT NULL UNIQUE,
             email TEXT NOT NULL UNIQUE,          
-            senha TEXT NOT NULL,                 
+            senha TEXT NOT NULL, 
+            telefone TEXT NOT NULL UNIQUE,
+            data_nascimento TEXT,                
             foto_perfil TEXT,                    
             biografia TEXT                       
         );
@@ -40,8 +42,7 @@ export async function iniciarBanco() {
             contem_spoiler INTEGER DEFAULT 0,
             data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (id_livro) REFERENCES livros(id_open_library) ON DELETE CASCADE,
-            FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE,
-            UNIQUE(id_livro, id_usuario)
+            FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
         );
     `);
 
