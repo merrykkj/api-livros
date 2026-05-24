@@ -50,5 +50,57 @@ export const avaliacaoController = {
             console.error("ERRO LISTAGEM:", error);
             return res.status(500).json({ erro: "Erro ao buscar avaliações no banco." });
         }
+    },
+
+    async listarMinhasAvaliacoes(req, res) {
+        try {
+            const id_usuario = req.usuarioLogado.id;
+
+            const avaliacoes = await avaliacaoModel.buscarPorUsuario(id_usuario);
+
+            return res.status(200).json(avaliacoes);
+        } catch (error) {
+            console.error("ERRO AO LISTAR MINHAS AVALIAÇÕES:", error);
+            return res.status(500).json({ erro: "Erro ao buscar suas avaliações." });
+        }
+    },
+
+    async excluir(req, res) {
+        try {
+            const { id } = req.params; 
+            const id_usuario = req.usuarioLogado.id;
+
+            const resultado = await avaliacaoModel.deletar(id, id_usuario);
+
+            if (resultado.changes === 0) {
+                return res.status(404).json({ erro: "Avaliação não encontrada ou você não tem permissão." });
+            }
+
+            return res.status(200).json({ mensagem: "Avaliação removida com sucesso!" });
+        } catch (error) {
+            return res.status(500).json({ erro: "Erro ao excluir avaliação." });
+        }
+    },
+
+    async editar(req, res) {
+        try {
+            const { id } = req.params;
+            const id_usuario = req.usuarioLogado.id;
+            const { nota, comentario } = req.body;
+
+            if (nota < 1 || nota > 5) {
+                return res.status(400).json({ erro: "A nota deve ser entre 1 e 5." });
+            }
+
+            const resultado = await avaliacaoModel.atualizar(id, id_usuario, { nota, comentario });
+
+            if (resultado.changes === 0) {
+                return res.status(404).json({ erro: "Avaliação não encontrada ou sem permissão para editar." });
+            }
+
+            return res.status(200).json({ mensagem: "Avaliação atualizada com sucesso!" });
+        } catch (error) {
+            return res.status(500).json({ erro: "Erro ao atualizar avaliação." });
+        }
     }
 };

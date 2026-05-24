@@ -51,9 +51,11 @@ export const usuarioController = {
                 return res.status(401).json({ erro: "E-mail ou senha incorretos." });
             }
 
+            const SECRET_KEY = "10e30c5f5992bc46ae3fc51e71d1322174db6a86258bf3462c5830df3e64ea59";
+
             const token = jwt.sign(
                 { id: usuario.id, email: usuario.email },
-                process.env.JWT_SECRET, 
+                SECRET_KEY,
                 { expiresIn: '30d' }
             );
 

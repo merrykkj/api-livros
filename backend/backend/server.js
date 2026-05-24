@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import express from 'express';
 import { iniciarBanco } from './src/config/db.js';
 import avaliacao from './src/routes/avaliacaoRoutes.js';
