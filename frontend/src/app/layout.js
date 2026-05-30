@@ -1,10 +1,11 @@
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
-
+import Footer from "@/components/Footer/page";
+import Header from "@/components/Header/page";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-playfair", 
+  variable: "--font-playfair",
 });
 
 const geistSans = Geist({
@@ -25,10 +26,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
+      lang="pt-br"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#2D241E]">
+        <Header />
+        <main className="grow">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }
