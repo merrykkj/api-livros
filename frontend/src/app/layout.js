@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer/page";
-import Header from "@/components/Header/page";
+import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header/Header";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],

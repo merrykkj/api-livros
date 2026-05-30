@@ -65,13 +65,13 @@ export default function Hero() {
 
         <figure className="relative overflow-hidden rounded-3xl shadow-2xl border-8 border-white">
           <img
-            src="/hero-leitura.jpg"
+            src="/hero3.jpg"
             alt="Pessoa escrevendo anotações em um livro aberto"
             className="w-full h-full object-cover"
             loading="eager"
           />
 
-          <blockquote className="absolute bottom-6 right-6 bg-white/90 backdrop-blur p-4 rounded-xl shadow-xl max-w-[200px] hidden lg:block border border-pergaminho rotate-3">
+          <blockquote className="absolute bottom-6 right-6 bg-white/90 backdrop-blur p-4 rounded-xl shadow-xl hidden lg:block border border-pergaminho rotate-3">
             <div
               aria-label="Avaliação de cinco estrelas"
               className="flex gap-1 mb-2"

@@ -27,7 +27,7 @@ export default function Header() {
                 <nav className="hidden md:flex" aria-label="Menu principal">
                     <ul className="flex justify-center text-[#E2D1C3] gap-7 font-serif font-medium text-sm">
                         <li className="transition transform hover:scale-105">
-                            <a href="#" className="hover:underline hover:underline-offset-4">Home</a>
+                            <a href="#hero" className="hover:underline hover:underline-offset-4">Home</a>
                         </li>
                         <li className="transition transform hover:scale-105">
                             <a href="#" className="hover:underline hover:underline-offset-4">Contato</a>
